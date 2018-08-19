@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    name:'普惠大众'
+  },
+
+  handleParent(){
+    console.log('父元素');
+  },
+
+  handleChild() {
+    console.log('子元素');
   },
 
   /**
