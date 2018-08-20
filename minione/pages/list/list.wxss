@@ -1,0 +1,11 @@
+/* pages/list/list.wxss */
+swiper{
+  width:100%;
+  height: 400rpx;
+}
+
+/* 不知道为什么不起作用 */
+switch image{
+  width: 100%;
+  height: 100%;
+}

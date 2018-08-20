@@ -10,12 +10,14 @@ Page({
     isShow:true
   },
 
-  handleParent(){
-    console.log('父元素');
-  },
-
-  handleChild() {
-    console.log('子元素');
+  /**
+   * 【开启小程序之旅】点击处理函数
+   */
+  handleClick(){
+    // 点击跳转到 list 页面
+    wx.navigateTo({
+      url: '/pages/list/list',
+    })
   },
 
   /**
