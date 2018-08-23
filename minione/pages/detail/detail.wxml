@@ -1,12 +1,12 @@
 <view class='detailContainer'>
-  <image class='headImg' src='/images/detail/carousel/01.jpg'></image>
+  <image class='headImg' src='{{detailObj.detail_img}}'></image>
   <view class='avatar_date'>
-    <image src='/images/avatar/0.png'></image>
-    <text>美国队长</text>
+    <image src='{{detailObj.avatar}}'></image>
+    <text>{{detailObj.author}}</text>
     <text>发布于</text>
-    <text>may 19 2018</text>
+    <text>{{detailObj.date}}</text>
   </view>
-  <text class='company'>小龙</text>
+  <text class='company'>{{detailObj.title}}</text>
   <view class='collection_share_container'>
     <view class='collection_share'>
       <image src='/images/icon/collection-anti.png'></image>
@@ -15,5 +15,5 @@
     <view class='line'></view>
   </view>
   <button>转发此文章</button>
-  <text class='content'>小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质小龙纸质</text>
+  <text class='content'>{{detailObj.detail_content}}</text>
 </view>

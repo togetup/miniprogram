@@ -1,18 +1,29 @@
 // pages/detail/detail.js
+
+let datas = require('../../datas/list-data.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    detailObj:{},
+    index:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // 获取参数值
+    let index = options.index;
+
+    // 更新data中 detailObj 的状态值
+    this.setData({
+      detailObj:datas.list_data[index],
+      index
+    })
   },
 
   /**
