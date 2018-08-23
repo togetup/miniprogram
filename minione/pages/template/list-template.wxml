@@ -1,17 +1,17 @@
 <template name='listTmp'>
   <view class='tmpContainer'>
     <view class='avatar_date'>
-      <image src='/images/avatar/0.png'></image>
-      <text>may 19 2018</text>      
+      <image src='{{avatar}}'></image>
+      <text>{{date}}</text>      
     </view>
-    <text class='company'>小龙</text>
-    <image class='contentImg' src='/images/detail/carousel/01.jpg'></image>
-    <text class='content'>今飞凯达今飞凯达交付放假的酸辣了任务人家了人家了放假的拉萨</text>
+    <text class='company'>{{title}}</text>
+    <image class='contentImg' src='{{detail_img}}'></image>
+    <text class='content'>{{detail_content}}</text>
     <view class='collection_love'>
       <image src='/images/icon/star.png'></image>
-      <text>98</text>
+      <text>{{love_count}}</text>
       <image src='/images/icon/view.png'></image>
-      <text>98</text>
+       <text>{{attention_count}}</text>
     </view>
   </view>
 </template>

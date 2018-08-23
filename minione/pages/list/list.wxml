@@ -17,7 +17,10 @@
     </swiper-item>
   </swiper>
 
-  <view>
-    <template is='listTmp' />
-  </view>
+  <block wx:for='{{listArr}}' wx:key='{{index}}'>
+    <view>
+      <template is='listTmp' data='{{...item}}' />
+    </view>
+  </block>
+  
 </view>
