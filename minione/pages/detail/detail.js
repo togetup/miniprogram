@@ -9,7 +9,8 @@ Page({
    */
   data: {
     detailObj:{},
-    index:null
+    index:null,
+    isCollected:false
   },
 
   /**
@@ -24,6 +25,23 @@ Page({
       detailObj:datas.list_data[index],
       index
     })
+  },
+
+  handleCollection(){
+    let isCollected = !this.data.isCollected;
+    
+    // 更新状态
+    this.setData({
+      isCollected
+    });
+
+    // 提示用户
+    let title = isCollected ? '收藏成功' : '取消收藏';
+    wx.showToast({
+      title,
+      icon: 'success'
+    })
+
   },
 
   /**
