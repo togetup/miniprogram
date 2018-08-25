@@ -24,7 +24,24 @@ Page({
     this.setData({
       detailObj:datas.list_data[index],
       index
-    })
+    });
+
+    // 根据本地缓存的数据判断用户是否收藏当年的文章
+    let detailStorage = wx.getStorageSync('isCollected');
+    
+    // 这个地方的逻辑很重要
+    if (!detailStorage){
+      // 在缓存中初始化空对象
+      wx.setStorageSync('isCollected', {});
+    }
+
+    // 判断用户是否收藏
+    if (detailStorage[index]){
+      // 已收藏
+      this.setData({
+        isCollected: true
+      })
+    }
   },
 
   handleCollection(){
@@ -42,6 +59,27 @@ Page({
       icon: 'success'
     })
 
+    // 缓存数据到本地 {1:true, 2:false}
+    let {index} = this.data;
+
+    // 不可行，会覆盖之前的状态
+    // let obj = {}; // {0:true, 2:false}
+
+    // 缓存数据到本地
+    wx.getStorage({
+      key: 'isCollected',
+      success:(datas) => {
+        let obj = datas.data;
+        obj[index] = isCollected;
+        wx.setStorage({
+          key: 'isCollected',
+          data: obj,
+          success:() => {
+            // 缓存成功
+          }
+        })
+      }
+    })
   },
 
   /**
