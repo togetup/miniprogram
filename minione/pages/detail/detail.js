@@ -1,6 +1,7 @@
-// pages/detail/detail.js
-
 let datas = require('../../datas/list-data.js')
+
+// 获取小程序全局 Data
+let appDatas = getApp();
 
 Page({
 
@@ -43,6 +44,38 @@ Page({
         isCollected: true
       })
     }
+
+    // 判断音乐是否在播放
+    if (appDatas.data.isPlay && appDatas.data.pageIndex === index) {
+      // 修改 isMusicPlay 的值
+      this.setData({
+        isMusicPlay: true
+      });
+    }
+
+    // 监听音乐播放
+    wx.onBackgroundAudioPlay(()=>{
+      // 修改 isMusicPlay 状态值
+      this.setData({
+        isMusicPlay : true
+      });
+
+      // 修改 appDatas 中的数据
+      appDatas.data.isPlay = true;
+      appDatas.data.pageIndex = index
+
+    });
+
+    // 监听音乐暂停
+    wx.onBackgroundAudioPause(() => {
+      // 修改 isMusicPlay 状态值
+      this.setData({
+        isMusicPlay: false
+      });
+
+      // 修改 appDatas 中的数据
+      appDatas.data.isPlay = fa;
+    });
   },
 
   handleCollection(){
