@@ -2,7 +2,8 @@ App({
 
   data:{
     isPlay : false,
-    pageIndex : null
+    pageIndex : null,
+    moviesArr:[]
   },
 
   /**
