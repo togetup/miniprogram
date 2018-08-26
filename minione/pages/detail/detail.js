@@ -10,7 +10,8 @@ Page({
   data: {
     detailObj:{},
     index:null,
-    isCollected:false
+    isCollected:false,
+    isMusicPlay:false
   },
 
   /**
@@ -80,6 +81,27 @@ Page({
         })
       }
     })
+  },
+
+  handleMusicPlay(){
+    // 处理音乐播放
+    let isMusicPlay = !this.data.isMusicPlay;
+    this.setData({
+      isMusicPlay
+    })
+
+    // 控制音乐播放
+    if (isMusicPlay){
+      // 播放音乐
+      let {dataUrl, title} = this.data.detailObj.music;
+      wx.playBackgroundAudio({
+        dataUrl,
+        title
+      })
+    }else{
+      // 暂停音乐
+      wx.pauseBackgroundAudio();
+    }
   },
 
   /**
