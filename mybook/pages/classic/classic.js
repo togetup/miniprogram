@@ -1,6 +1,6 @@
-import {HTTP} from '../../util/http.js'
+import {ClassicModel} from '../../models/classic.js'
 
-let http = new HTTP()
+let classic = new ClassicModel()
 
 Page({
 
@@ -8,53 +8,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-    test:1
+    classic:null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    http.request({
-      url:'classic/latest',
-      success:(res) =>{
-        console.log(res)
-      }
-    })
-
-    // wx.request({
-    //   url:'http://bl.7yue.pro/v1/classic/latest',
-    //   header:{
-    //     appKey: "AbhC31IG7ruCDp57"
-    //   },
-    //   success:(ret)=>{
-    //     console.log(this.data.test)
-
-    //     console.log(ret);
-    //   }
-    // });
+    classic.getLatest((res)=>{
+      this.setData({
+        classic:res
+      })
+    });
   },
+
+onLike:function(event){
+  console.log(event);
+},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let promise = new Promise((resolve, reject) =>{
-      wx.request({
-        url: 'http://bl.7yue.pro/v1/classic/latest',
-        header: {
-          appKey: "AbhC31IG7ruCDp57"
-        },
-        success: (ret) => {
-          resolve(ret);
-        }
-      })
-    })
+    // let promise = new Promise((resolve, reject) =>{
+    //   wx.request({
+    //     url: 'http://bl.7yue.pro/v1/classic/latest',
+    //     header: {
+    //       appKey: "AbhC31IG7ruCDp57"
+    //     },
+    //     success: (ret) => {
+    //       resolve(ret);
+    //     }
+    //   })
+    // })
 
-    promise.then((res)=>{
-      console.log(res)
-    })
+    // promise.then((res)=>{
+    //   console.log(res)
+    // })
   },
 
   /**

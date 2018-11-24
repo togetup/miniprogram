@@ -21,7 +21,7 @@ class HTTP{
                 // endsWith
                 let code = res.statusCode.toString();
                 if (code.startsWith('2')){
-
+                    params.success(res.data);
                 }else{
                     
                 }
