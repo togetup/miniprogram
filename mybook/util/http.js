@@ -21,6 +21,7 @@ class HTTP{
                 // endsWith
                 let code = res.statusCode.toString();
                 if (code.startsWith('2')){
+                    // 注意下面的写法
                     params.success && params.success(res.data);
                 }else{
                     
